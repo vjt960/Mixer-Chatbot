@@ -1,21 +1,21 @@
 // Load in dotenv to use .env file storing your env variables
-require('dotenv').config()
+require('dotenv').config();
 
-// Load in some dependencies 
+// Load in some dependencies
 const Mixer = require('@mixer/client-node');
 const ws = require('ws');
 
 // Instantiate a new Mixer Client
-const client = new Mixer.Client(new Mixer.DefaultRequestRunner()); 
+const client = new Mixer.Client(new Mixer.DefaultRequestRunner());
 
 // Store your token for the account you wish to use as a bot
-const myToken = process.env.token; 
+const myToken = process.env.token;
 
 // Store the ID of the channel who's chat you wish to connect
-const myChannelId = Number(process.env.ganjaId); 
+const myChannelId = Number(process.env.ganjaId);
 
-// Store the name of the channel who's chat you wish to connect 
-const myChannelName = process.env.channelName;
+// Store the name of the channel who's chat you wish to connect
+const myChannelName = process.env.channelName; 
 
 /* With OAuth we don't need to log in. The OAuth Provider will attach
  * the required information to all of our requests after this call.
@@ -79,38 +79,37 @@ getUserInfo().then(async userInfo => {
   const socket = await joinChat(userInfo.id, myChannelId).catch(error =>
     console.log(error)
   );
+
   let myAdmin = ['Owner', 'Mod'];
-  let lurkers = []; 
+  let lurkers = [];
   let viewers = [];
 
   // Send a message once connected to chat.
   socket.call('msg', [`GanjaBot online...`]);
 
   // Notify when a user has joined.
-  socket.on('UserJoin', data => {
-    if (data.user_name) { 
-      if (!viewers.includes(data.user_name)) {
-        viewers.push(data.user_name)
-      }
-      socket.call('whisper', [
-        `${myChannelName}`,
-        `${data.user_name} has appeared in your channel.`
-      ]);
+  socket.on('UserJoin', data => { 
+    if (!viewers.includes(data.username)) {
+      viewers.push(data.username)
     }
+    socket.call('whisper', [
+      myChannelName,
+      `${data.username} has appeared in your channel.`
+    ]);
   });
 
   // Notify when a user has left.
-  socket.on('UserLeave', data => {
+  socket.on('UserLeave', data => { 
     socket.call('whisper', [
-      `${myChannelName}`,
-      `${data.user_name} has left the channel.`
+      myChannelName,
+      `${data.username} has left the channel.`
     ]);
   });
 
   socket.on('ChatMessage', data => {
-    // PingPong Test
-    if (data.message.message[0].data === '!ping') {
-      console.log('dataLog: ', data);
+    // PingPong Test -adminOnly
+    if (data.message.message[0].data === '!ping' && 
+    myAdmin.some(role => data.user_roles.includes(role))) {
       socket.call('whisper', [`${data.user_name}`, `PONG!`]);
     }
 
@@ -138,16 +137,16 @@ getUserInfo().then(async userInfo => {
       data.message.message[0].data === '!reveal' &&
       myAdmin.some(role => data.user_roles.includes(role))
     ) {
-      socket.call('whisper', [`${data.user_name}`, `lurkers: ${lurkers}`]);
-    } 
+      socket.call('whisper', [`${data.user_name}`, `current_lurkers: ${lurkers}`]);
+    }
 
-    // !vlog -adminOnly 
+    // !vlog -adminOnly
     if (
       data.message.message[0].data === '!vlog' &&
       myAdmin.some(role => data.user_roles.includes(role))
     ) {
-      socket.call('whisper', [`${data.user_name}`, `viewers: ${viewers}`]);
-    } 
+      socket.call('whisper', [`${data.user_name}`, `viewer_log: ${viewers}`]);
+    }
 
     // !lurk
     if (data.message.message[0].data === '!lurk') {
