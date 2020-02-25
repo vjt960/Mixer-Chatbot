@@ -11,10 +11,10 @@ const client = new Mixer.Client(new Mixer.DefaultRequestRunner());
 // Store your token for the account you wish to use as a bot
 const myToken = process.env.token;
 
-// Store the ID of the channel who's chat you wish to connect
+// Store the ID of the target channel
 const myChannelId = Number(process.env.ganjaId);
 
-// Store the name of the channel who's chat you wish to connect
+// Store the username of the target channel
 const myChannelName = process.env.channelName; 
 
 /* With OAuth we don't need to log in. The OAuth Provider will attach
@@ -80,8 +80,13 @@ getUserInfo().then(async userInfo => {
     console.log(error)
   );
 
-  let myAdmin = ['Owner', 'Mod'];
-  let lurkers = [];
+  // Array of Admin user_roles
+  let myAdmin = ['Owner', 'Mod']; 
+
+  // Array to store users who trigger !lurk 
+  let lurkers = []; 
+
+  //Array to store users who visit the target channel
   let viewers = [];
 
   // Send a message once connected to chat.
