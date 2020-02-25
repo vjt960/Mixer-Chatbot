@@ -15,7 +15,7 @@ const myToken = process.env.token;
 const myChannelId = Number(process.env.ganjaId);
 
 // Store the username of the target channel
-const myChannelName = process.env.channelName; 
+const myChannelName = process.env.channelName;
 
 /* With OAuth we don't need to log in. The OAuth Provider will attach
  * the required information to all of our requests after this call.
@@ -81,10 +81,10 @@ getUserInfo().then(async userInfo => {
   );
 
   // Array of Admin user_roles
-  let myAdmin = ['Owner', 'Mod']; 
+  let myAdmin = ['Owner', 'Mod'];
 
-  // Array to store users who trigger !lurk 
-  let lurkers = []; 
+  // Array to store users who trigger !lurk
+  let lurkers = [];
 
   //Array to store users who visit the target channel
   let viewers = [];
@@ -93,9 +93,9 @@ getUserInfo().then(async userInfo => {
   socket.call('msg', [`GanjaBot online...`]);
 
   // Notify when a user has joined.
-  socket.on('UserJoin', data => { 
+  socket.on('UserJoin', data => {
     if (!viewers.includes(data.username)) {
-      viewers.push(data.username)
+      viewers.push(data.username);
     }
     socket.call('whisper', [
       myChannelName,
@@ -104,7 +104,7 @@ getUserInfo().then(async userInfo => {
   });
 
   // Notify when a user has left.
-  socket.on('UserLeave', data => { 
+  socket.on('UserLeave', data => {
     socket.call('whisper', [
       myChannelName,
       `${data.username} has left the channel.`
@@ -113,8 +113,10 @@ getUserInfo().then(async userInfo => {
 
   socket.on('ChatMessage', data => {
     // PingPong Test -adminOnly
-    if (data.message.message[0].data === '!ping' && 
-    myAdmin.some(role => data.user_roles.includes(role))) {
+    if (
+      data.message.message[0].data === '!ping' &&
+      myAdmin.some(role => data.user_roles.includes(role))
+    ) {
       socket.call('whisper', [`${data.user_name}`, `PONG!`]);
     }
 
@@ -142,7 +144,10 @@ getUserInfo().then(async userInfo => {
       data.message.message[0].data === '!reveal' &&
       myAdmin.some(role => data.user_roles.includes(role))
     ) {
-      socket.call('whisper', [`${data.user_name}`, `current_lurkers: ${lurkers}`]);
+      socket.call('whisper', [
+        `${data.user_name}`,
+        `current_lurkers: ${lurkers}`
+      ]);
     }
 
     // !vlog -adminOnly
