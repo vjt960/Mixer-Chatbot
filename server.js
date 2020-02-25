@@ -1,14 +1,22 @@
-// Load in some dependencies 
+// Load in dotenv to use .env file storing your env variables
 require('dotenv').config()
+
+// Load in some dependencies 
 const Mixer = require('@mixer/client-node');
 const ws = require('ws');
 
 // Instantiate a new Mixer Client
-const client = new Mixer.Client(new Mixer.DefaultRequestRunner());
-const myToken = process.env.token;
-const myChannelId = Number(process.env.ganjaId);
+const client = new Mixer.Client(new Mixer.DefaultRequestRunner()); 
 
-console.log(myToken, myChannelId)
+// Store your token for the account you wish to use as a bot
+const myToken = process.env.token; 
+
+// Store the ID of the channel who's chat you wish to connect
+const myChannelId = Number(process.env.ganjaId); 
+
+// Store the name of the channel who's chat you wish to connect 
+const myChannelName = process.env.channelName;
+
 /* With OAuth we don't need to log in. The OAuth Provider will attach
  * the required information to all of our requests after this call.
  * They'll also be authenticated with the user information of the user
@@ -85,7 +93,7 @@ getUserInfo().then(async userInfo => {
         viewers.push(data.user_name)
       }
       socket.call('whisper', [
-        `GanjaGunGorilla`,
+        `${myChannelName}`,
         `${data.user_name} has appeared in your channel.`
       ]);
     }
@@ -94,7 +102,7 @@ getUserInfo().then(async userInfo => {
   // Notify when a user has left.
   socket.on('UserLeave', data => {
     socket.call('whisper', [
-      `GanjaGunGorilla`,
+      `${myChannelName}`,
       `${data.user_name} has left the channel.`
     ]);
   });
