@@ -12,7 +12,7 @@ const client = new Mixer.Client(new Mixer.DefaultRequestRunner());
 const myToken = process.env.token;
 
 // Store the ID of the target channel
-const myChannelId = Number(process.env.ganjaId);
+const myChannelId = Number(process.env.channel_id);
 
 // Store the username of the target channel
 const myChannelName = process.env.channelName;
