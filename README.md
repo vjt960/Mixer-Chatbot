@@ -13,7 +13,7 @@
 </p> 
 
 
-## Chatbot for Mixer in Node.js 
+## Customizable Chatbot for Mixer in Node.js 
 
 ### Setup Instructions:
 
