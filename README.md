@@ -16,7 +16,8 @@
 
 ## Customizable Chatbot for Mixer in Node.js 
 
-### Setup Instructions:
+### Setup Instructions: 
+> Before starting, get [NodeJS and NPM](https://nodejs.org/en/) for your platform, I suggest the latest version.
 
  1. Clone down this repo. 
  
@@ -32,6 +33,10 @@
     channel_id=<insert the channel id of the target channel here>
     channelName=<insert the channel name of the target channel here>
 
+ 5. In your terminal type in `node server.js` and hit Enter to start the bot! 
+ 
+ 6. To stop the bot, hit `Ctrl+C` in your terminal. 
+ 
 > Note: Do **NOT** write your token, channel_id, or channelName in quotes like `token="blAhBlaHblAhExaMpLeTokEn"`. Just write/paste it as is without quotations like `token=blAhBlaHblAhExaMpLeTokEn`.
 #
 ### Mixer Resources: 
