@@ -1,6 +1,18 @@
 # Mixer Chatbot
 
-<p align="center"><img src="https://dev.mixer.com/user/pages/home/devbot.png" alt="Mixer bot" height="200"/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mixer_%28website%29_logo.svg/1280px-Mixer_%28website%29_logo.svg.png" alt="Mixer logo" height="200"/></p>
+<p align="center">
+ <img src="https://dev.mixer.com/user/pages/home/devbot.png" 
+      alt="Mixer bot" 
+      height="170"
+ />
+ <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mixer_%28website%29_logo.svg/1280px-Mixer_%28website%29_logo.svg.png" 
+      alt="Mixer logo" 
+      height="170"
+ />
+</p> 
+
+
 ## Chatbot for Mixer in Node.js 
 
 ### Setup Instructions:
