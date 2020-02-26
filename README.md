@@ -23,7 +23,15 @@
 ### Mixer Resources: 
 
  - ***Mixer Auth Token***: *You will need an Authentication Token from Mixer in order to access Mixer chat. You can either use your own token or even create a separate Mixer account to use as your bot. You can get your token from [HERE](https://dev.mixer.com/guides/chat/chatbot) and click on the code as shown below.* 
+ 
+ ![](https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/authToken.png?raw=true) 
+ 
+ > 
 
- - ***Channel ID***: *You will need the channel ID for the channel you wish to join. You can find your channel ID by going to* `https://mixer.com/api/v1/channels/<username>?fields=id` *, simply replace* `<username>` *with the name of the mixer channel you wish to join, and you will find the id as shown in the example below.*
+ - ***Channel ID***: *You will need the channel ID for the channel you wish to join. You can find your channel ID by going to* `https://mixer.com/api/v1/channels/<username>?fields=id` *, simply replace* `<username>` *with the name of the mixer channel you wish to join, and you will find the id as shown in the example below.* 
+ 
+ ![](https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/mixerID.png?raw=true) 
+ 
+ > 
 
  - ***Channel Name***: *Quite simply, the name of the Mixer channel. In this context, it will be the name of the channel you wish to chat with.*
