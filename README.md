@@ -2,12 +2,12 @@
 
 <p align="center">
   <img
-    src="https://dev.mixer.com/user/pages/home/devbot.png"
+    src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/devbot.png?raw=true"
     alt="Mixer bot"
     height="170"
   />
   <img
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mixer_%28website%29_logo.svg/1280px-Mixer_%28website%29_logo.svg.png"
+    src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/mixer_logo.png?raw=true"
     alt="Mixer logo"
     height="170"
   />
@@ -46,10 +46,12 @@
 
  - ***Channel ID***: *You will need the channel ID for the channel you wish to join. You can find your channel ID by going to* `https://mixer.com/api/v1/channels/<username>?fields=id` *, simply replace* `<username>` *with the name of the mixer channel you wish to join, and you will find the id as shown in the example below.* 
  
-<p align="center"><img src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/mixerID.png?raw=true" alt="Ninja's Mixer id" width="400"/></p>
+<p align="center"><img src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/mixer_id.png?raw=true" alt="Ninja's Mixer id" width="400"/></p>
  
 <p>&nbsp;  </p>
 <p>&nbsp;  </p>
 <p>&nbsp;  </p>
 
- - ***Channel Name***: *Quite simply, the name of the Mixer channel. In this context, it will be the name of the channel you wish to chat with.*
+ - ***Channel Name***: *Quite simply, the name of the Mixer channel. In this context, it will be the name of the channel you wish to chat with.* 
+ 
+ <p align="center"><img src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/mixer_name.png?raw=true" alt="Ninja's Mixer channel name" width="400"/></p>
