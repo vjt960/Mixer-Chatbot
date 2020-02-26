@@ -24,9 +24,9 @@
 
  - ***Mixer Auth Token***: *You will need an Authentication Token from Mixer in order to access Mixer chat. You can either use your own token or even create a separate Mixer account to use as your bot. You can get your token from [HERE](https://dev.mixer.com/guides/chat/chatbot) and click on the code as shown below.* 
  
- ![](https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/authToken.png?raw=true)
  <p align="center"><img src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/authToken.png?raw=true" alt="Snippet of where to find your Mixer Auth-Token" width="800"/></p>
  
+<p>&nbsp;  </p>
 <p>&nbsp;  </p>
 <p>&nbsp;  </p>
 
@@ -34,6 +34,7 @@
  
 <p align="center"><img src="https://github.com/vjt960/Mixer-Chatbot/blob/master/_assets/mixerID.png?raw=true" alt="Ninja's Mixer id" width="400"/></p>
  
+<p>&nbsp;  </p>
 <p>&nbsp;  </p>
 <p>&nbsp;  </p>
 
