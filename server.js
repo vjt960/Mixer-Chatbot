@@ -38,7 +38,7 @@ client.use(
 function getUserInfo() {
   // Users Current will return information about the user who owns the OAuth
   // token registered above.
-  return client.request('GET', 'users/current').then(response => response.body);
+  return client.request('GET', 'users/current').then(response => response.body).catch(error => console.log(error));
 }
 
 // /**
@@ -50,7 +50,7 @@ function getUserInfo() {
 function getConnectionInformation(channelId) {
   return new Mixer.ChatService(client)
     .join(channelId)
-    .then(response => response.body);
+    .then(response => response.body).catch(error => console.log(error));
 }
 
 // /**
@@ -191,4 +191,4 @@ getUserInfo().then(async userInfo => {
     console.error('Socket error');
     console.error(error);
   });
-});
+}).catch(error => console.log(error));
