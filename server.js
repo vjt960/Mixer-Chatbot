@@ -38,7 +38,7 @@ client.use(
 function getUserInfo() {
   // Users Current will return information about the user who owns the OAuth
   // token registered above.
-  return client.request('GET', 'users/current').then(response => response.body).catch(error => console.log(error));
+  return client.request('GET', 'users/current').then(response => response.body).catch(error => console.log('Error firing from getUserInfo', error));
 }
 
 // /**
@@ -50,7 +50,7 @@ function getUserInfo() {
 function getConnectionInformation(channelId) {
   return new Mixer.ChatService(client)
     .join(channelId)
-    .then(response => response.body).catch(error => console.log(error));
+    .then(response => response.body).catch(error => console.log('Error firing from getConnectionInformation', error));
 }
 
 // /**
@@ -67,7 +67,7 @@ async function joinChat(userId, channelId) {
   return socket
     .auth(channelId, userId, joinInformation.authkey)
     .then(() => socket)
-    .catch(error => console.log(error));
+    .catch(error => console.log('Error firing from joinChat', error));
 }
 
 // Get our Bot's User Information, Who are they?
@@ -77,7 +77,7 @@ getUserInfo().then(async userInfo => {
    * But you can replace the second argument of this function with ANY Channel ID.
    */
   const socket = await joinChat(userInfo.id, myChannelId).catch(error =>
-    console.log(error)
+    console.log('Error firing from socket variable', error)
   );
 
   // Array of Admin user_roles
@@ -101,6 +101,7 @@ getUserInfo().then(async userInfo => {
       myChannelName,
       `${data.username} has appeared in your channel.`
     ]);
+    console.log(`${data.username} has appeared in your channel.`)
   });
 
   // Notify when a user has left.
@@ -191,4 +192,4 @@ getUserInfo().then(async userInfo => {
     console.error('Socket error');
     console.error(error);
   });
-}).catch(error => console.log(error));
+}).catch(error => console.log('Total Socket Error', error));
